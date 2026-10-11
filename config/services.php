@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+    'callmebot' => [
+        'phone' => env('CALLMEBOT_PHONE', '+9779802350986'),
+        'apikey' => env('CALLMEBOT_APIKEY', '8408340'),
+    ],
+
 ];
