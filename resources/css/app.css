@@ -4,6 +4,94 @@
 @source '../../storage/framework/views/*.php';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-serif: 'Cormorant Garamond', Georgia, Cambria, 'Times New Roman', Times, serif;
+
+    --color-jungle-950: #0a140f;
+    --color-jungle-900: #14281d;
+    --color-jungle-800: #1c3829;
+    --color-jungle-700: #254b37;
+    --color-safari-600: #c25e19;
+    --color-safari-500: #d96b20;
+    --color-safari-400: #f08235;
+    --color-sand-50: #fdfbf7;
+    --color-sand-100: #f7f4ed;
+    --color-sand-200: #eae4d8;
+    --color-sand-300: #d6ccba;
+}
+
+/* Custom Typography Utility Classes */
+.font-serif-luxury {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    letter-spacing: -0.015em;
+}
+
+.font-sans-body {
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+}
+
+/* Luxury Glassmorphism & Elevation */
+.glass-surface {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.65);
+}
+
+.glass-dark {
+    background: rgba(20, 40, 29, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.luxury-shadow {
+    box-shadow: 0 20px 40px -15px rgba(20, 40, 29, 0.07), 0 0 1px 1px rgba(20, 40, 29, 0.04);
+}
+
+.luxury-card-hover {
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.45s ease;
+}
+
+.luxury-card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 50px -18px rgba(20, 40, 29, 0.12), 0 0 1px 1px rgba(194, 94, 25, 0.15);
+}
+
+/* Micro-Animations & Smooth Motion */
+@keyframes floatGentle {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+.animate-float-gentle {
+    animation: floatGentle 4s ease-in-out infinite;
+}
+
+@keyframes kenBurns {
+    0% {
+        transform: scale(1.02);
+    }
+    50% {
+        transform: scale(1.07);
+    }
+    100% {
+        transform: scale(1.02);
+    }
+}
+
+.animate-ken-burns {
+    animation: kenBurns 22s ease-in-out infinite alternate;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .animate-float-gentle,
+    .animate-ken-burns {
+        animation: none !important;
+    }
 }
