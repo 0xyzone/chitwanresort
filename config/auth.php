@@ -114,4 +114,20 @@ return [
 
     'password_timeout' => env('AUTH_PASSWORD_TIMEOUT', 10800),
 
+    /*
+    |--------------------------------------------------------------------------
+    | User Reactivation OTP Settings
+    |--------------------------------------------------------------------------
+    |
+    | Configuration for sending OTP verification codes to the super admin
+    | before an inactive user account can be reactivated.
+    |
+    */
+
+    'reactivation' => [
+        'super_admin_email' => env('SUPER_ADMIN_OTP_EMAIL'),
+        'otp_timeout_minutes' => (int) env('REACTIVATION_OTP_TIMEOUT', 10),
+        'max_attempts' => (int) env('REACTIVATION_OTP_MAX_ATTEMPTS', 5),
+    ],
+
 ];

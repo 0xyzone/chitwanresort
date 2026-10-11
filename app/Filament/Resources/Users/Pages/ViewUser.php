@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Users\Pages;
 
+use App\Filament\Resources\Users\Actions\ReactivateUserAction;
 use App\Filament\Resources\Users\UserResource;
 use App\Models\User;
 use Filament\Actions\Action;
@@ -22,6 +23,25 @@ class ViewUser extends ViewRecord
         return [
             EditAction::make()
                 ->icon(Heroicon::OutlinedPencilSquare),
+            ReactivateUserAction::make(),
+            Action::make('deactivate')
+                ->label('Deactivate')
+                ->icon(Heroicon::OutlinedNoSymbol)
+                ->color('danger')
+                ->visible(fn (User $record): bool => (bool) ($record->is_active && $record->id !== auth()->id() && (auth()->user()?->can('ToggleActive:User') ?? true)))
+                ->requiresConfirmation()
+                ->modalHeading(fn (User $record): string => "Deactivate User: {$record->name}")
+                ->modalDescription('Are you sure you want to deactivate this account? System panel access will be blocked immediately. Reactivation will strictly require Super Admin OTP verification.')
+                ->modalSubmitActionLabel('Deactivate User')
+                ->action(function (User $record): void {
+                    $record->update(['is_active' => false]);
+
+                    Notification::make()
+                        ->title('User Deactivated')
+                        ->body("{$record->name}'s account has been deactivated.")
+                        ->warning()
+                        ->send();
+                }),
             Action::make('reset_password')
                 ->label('Reset Password')
                 ->icon(Heroicon::OutlinedKey)

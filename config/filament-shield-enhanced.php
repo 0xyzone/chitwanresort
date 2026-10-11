@@ -113,10 +113,10 @@ return [
         */
 
         'labels' => [
-            'resources'  => 'Management Areas',
-            'pages'      => 'Function Pages',
-            'widgets'    => 'Dashboard Widgets',
-            'custom'     => 'Other Permissions',
+            'resources' => 'Management Areas',
+            'pages' => 'Function Pages',
+            'widgets' => 'Dashboard Widgets',
+            'custom' => 'Other Permissions',
             'misc_group' => 'Miscellaneous',
         ],
     ],

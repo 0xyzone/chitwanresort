@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Users\Pages;
 
+use App\Filament\Resources\Users\Actions\ReactivateUserAction;
 use App\Filament\Resources\Users\UserResource;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\ViewAction;
@@ -16,6 +17,7 @@ class EditUser extends EditRecord
     {
         return [
             ViewAction::make(),
+            ReactivateUserAction::make(),
             DeleteAction::make()
                 ->hidden(fn ($record): bool => $record->id === Auth::id()),
         ];

@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Users\Schemas;
 
+use App\Models\User;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
@@ -73,8 +74,12 @@ class UserForm
 
                                             Toggle::make('is_active')
                                                 ->label('Account Status (Active)')
-                                                ->helperText('Active accounts can log into panels. Turn off to immediately block system access.')
+                                                ->helperText(fn (?User $record): string => ($record && ! $record->is_active)
+                                                    ? 'This user is currently inactive. Inactive accounts can only be reactivated using the Reactivate action with Super Admin OTP verification.'
+                                                    : 'Active accounts can log into panels. Turn off to immediately block system access.')
                                                 ->default(true)
+                                                ->disabled(fn (?User $record): bool => (bool) ($record && ! $record->is_active))
+                                                ->dehydrated(fn (?User $record): bool => ! ($record && ! $record->is_active))
                                                 ->inline(false),
                                         ]),
                                     ]),
