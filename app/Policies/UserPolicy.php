@@ -68,24 +68,4 @@ class UserPolicy
     {
         return $authUser->can('Reorder:User');
     }
-
-    public function export(AuthUser $authUser): bool
-    {
-        return $authUser->can('Export:User');
-    }
-
-    public function resetPassword(AuthUser $authUser): bool
-    {
-        return $authUser->can('ResetPassword:User');
-    }
-
-    public function toggleActive(AuthUser $authUser): bool
-    {
-        return $authUser->can('ToggleActive:User');
-    }
-
-    public function manageRoles(AuthUser $authUser): bool
-    {
-        return $authUser->can('ManageRoles:User');
-    }
 }
