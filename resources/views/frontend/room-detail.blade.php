@@ -10,17 +10,17 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div>
-                <a href="{{ route('rooms.index') }}" class="text-xs font-semibold uppercase tracking-widest text-[#f08235] hover:underline mb-3 inline-flex items-center gap-1.5 transition">
+                <a href="{{ route('rooms.index') }}" class="text-xs font-bold uppercase tracking-widest text-[#f08235] hover:underline mb-3 inline-flex items-center gap-1.5 transition">
                     ← Back to All Accommodations
                 </a>
-                <h1 class="text-3xl sm:text-5xl font-normal font-serif-luxury text-white mt-1">{{ $room->name }}</h1>
-                <p class="text-stone-300 text-xs sm:text-sm mt-2 font-light">
+                <h1 class="text-3xl sm:text-5xl font-black text-white mt-1 tracking-tight">{{ $room->name }}</h1>
+                <p class="text-stone-300 text-xs sm:text-sm mt-2 font-normal">
                     {{ $room->category?->name }} • {{ $room->view_type }} • {{ $room->bed_type }}
                 </p>
             </div>
             <div class="text-left md:text-right bg-white/10 backdrop-blur-md p-5 rounded-2xl border border-white/10">
                 <span class="text-[11px] text-stone-300 block uppercase font-bold tracking-wider">Nightly Rate</span>
-                <span class="text-3xl font-normal text-amber-200 font-serif-luxury">NPR {{ number_format($room->base_price) }}</span>
+                <span class="text-3xl font-extrabold text-amber-200 tracking-tight">NPR {{ number_format($room->base_price) }}</span>
                 <span class="text-[11px] text-stone-300 block mt-0.5">Taxes & Breakfast included</span>
             </div>
         </div>
@@ -51,28 +51,28 @@
             <!-- Room Description -->
             <div class="bg-white p-8 sm:p-10 rounded-3xl border border-[#eae4d8] luxury-shadow">
                 <span class="text-xs font-bold uppercase tracking-widest text-[#c25e19] mb-2 block">Room Overview</span>
-                <h2 class="text-2xl sm:text-3xl font-normal font-serif-luxury text-stone-900 mb-4">Space & Ambiance</h2>
-                <div class="prose prose-stone text-sm sm:text-base leading-relaxed text-stone-600 font-light">
+                <h2 class="text-2xl sm:text-3xl font-bold text-stone-900 mb-4 tracking-tight">Space & Ambiance</h2>
+                <div class="prose prose-stone text-sm sm:text-base leading-relaxed text-stone-600 font-normal">
                     <p>{{ $room->description }}</p>
                 </div>
 
                 <!-- Specs Grid -->
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-8 border-t border-[#eae4d8] text-center">
                     <div class="p-4 rounded-2xl bg-[#faf7f2] border border-[#eae4d8]">
-                        <span class="text-[10px] text-stone-500 uppercase tracking-wider block mb-1">Max Capacity</span>
-                        <span class="font-bold text-stone-900 text-xs sm:text-sm">👥 {{ $room->capacity_adults + $room->capacity_children }} Guests</span>
+                        <span class="text-[10px] text-stone-500 uppercase tracking-wider font-bold block mb-1">Max Capacity</span>
+                        <span class="font-extrabold text-stone-900 text-xs sm:text-sm">👥 {{ $room->capacity_adults + $room->capacity_children }} Guests</span>
                     </div>
                     <div class="p-4 rounded-2xl bg-[#faf7f2] border border-[#eae4d8]">
-                        <span class="text-[10px] text-stone-500 uppercase tracking-wider block mb-1">Bed Setup</span>
-                        <span class="font-bold text-stone-900 text-xs sm:text-sm">🛏️ {{ $room->bed_type }}</span>
+                        <span class="text-[10px] text-stone-500 uppercase tracking-wider font-bold block mb-1">Bed Setup</span>
+                        <span class="font-extrabold text-stone-900 text-xs sm:text-sm">🛏️ {{ $room->bed_type }}</span>
                     </div>
                     <div class="p-4 rounded-2xl bg-[#faf7f2] border border-[#eae4d8]">
-                        <span class="text-[10px] text-stone-500 uppercase tracking-wider block mb-1">Window View</span>
-                        <span class="font-bold text-stone-900 text-xs sm:text-sm">🌄 {{ $room->view_type }}</span>
+                        <span class="text-[10px] text-stone-500 uppercase tracking-wider font-bold block mb-1">Window View</span>
+                        <span class="font-extrabold text-stone-900 text-xs sm:text-sm">🌄 {{ $room->view_type }}</span>
                     </div>
                     <div class="p-4 rounded-2xl bg-[#faf7f2] border border-[#eae4d8]">
-                        <span class="text-[10px] text-stone-500 uppercase tracking-wider block mb-1">Room Area</span>
-                        <span class="font-bold text-stone-900 text-xs sm:text-sm">📐 {{ $room->room_size ?? 'Spacious' }}</span>
+                        <span class="text-[10px] text-stone-500 uppercase tracking-wider font-bold block mb-1">Room Area</span>
+                        <span class="font-extrabold text-stone-900 text-xs sm:text-sm">📐 {{ $room->room_size ?? 'Spacious' }}</span>
                     </div>
                 </div>
             </div>
@@ -80,12 +80,12 @@
             <!-- Amenities & Services -->
             <div class="bg-white p-8 sm:p-10 rounded-3xl border border-[#eae4d8] luxury-shadow">
                 <span class="text-xs font-bold uppercase tracking-widest text-[#c25e19] mb-2 block">Included Privileges</span>
-                <h2 class="text-2xl font-normal font-serif-luxury text-stone-900 mb-6">Room Amenities</h2>
+                <h2 class="text-2xl font-bold text-stone-900 mb-6 tracking-tight">Room Amenities</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-stone-700">
                     @forelse(($room->amenities ?? []) as $amenity)
                         <div class="flex items-center gap-3 p-3 rounded-xl bg-[#faf7f2] border border-[#eae4d8]/80">
                             <span class="text-emerald-700 font-bold">✓</span>
-                            <span class="font-medium">{{ $amenity }}</span>
+                            <span class="font-semibold">{{ $amenity }}</span>
                         </div>
                     @empty
                         <div class="p-3 rounded-xl bg-[#faf7f2] border border-[#eae4d8] text-xs">Standard resort amenities included</div>
@@ -96,8 +96,8 @@
             <!-- Stay Policies -->
             <div class="bg-white p-8 sm:p-10 rounded-3xl border border-[#eae4d8] luxury-shadow space-y-4">
                 <span class="text-xs font-bold uppercase tracking-widest text-[#c25e19] block">Guest Guidelines</span>
-                <h3 class="text-2xl font-normal font-serif-luxury text-stone-900">Resort & Check-in Policies</h3>
-                <ul class="space-y-2.5 text-xs sm:text-sm text-stone-600 font-light">
+                <h3 class="text-2xl font-bold text-stone-900 tracking-tight">Resort & Check-in Policies</h3>
+                <ul class="space-y-2.5 text-xs sm:text-sm text-stone-600 font-normal">
                     <li class="flex items-start gap-2">
                         <span class="text-[#c25e19]">🕐</span>
                         <span><strong>Check-in:</strong> 12:00 PM onwards | <strong>Check-out:</strong> 11:00 AM</span>
@@ -133,9 +133,9 @@
             <div class="bg-white p-8 rounded-3xl border border-[#eae4d8] luxury-shadow">
                 <div class="pb-6 mb-6 border-b border-[#eae4d8] flex items-center justify-between">
                     <div>
-                        <span class="text-xs text-stone-500 uppercase tracking-widest font-semibold block">Reserve Directly</span>
-                        <span class="text-2xl font-normal text-stone-900 font-serif-luxury">NPR {{ number_format($room->base_price) }}</span>
-                        <span class="text-xs text-stone-500 font-light">/ night</span>
+                        <span class="text-xs text-stone-500 uppercase tracking-widest font-bold block">Reserve Directly</span>
+                        <span class="text-2xl font-extrabold text-stone-900 tracking-tight">NPR {{ number_format($room->base_price) }}</span>
+                        <span class="text-xs text-stone-500 font-normal">/ night</span>
                     </div>
                     <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-bold uppercase tracking-wider">
                         Best Rate Direct
@@ -150,43 +150,43 @@
                     <div class="grid grid-cols-2 gap-3">
                         <div>
                             <label class="block text-[11px] font-bold uppercase tracking-wider text-stone-600 mb-1">Check-In</label>
-                            <input type="date" name="check_in_date" x-model="checkIn" min="{{ now()->format('Y-m-d') }}" required class="w-full px-3 py-2.5 rounded-xl border border-stone-200 text-xs font-medium focus:ring-2 focus:ring-[#c25e19] focus:outline-hidden">
+                            <input type="date" name="check_in_date" x-model="checkIn" min="{{ now()->format('Y-m-d') }}" required class="w-full px-3 py-2.5 rounded-xl border border-stone-200 text-xs font-semibold focus:ring-2 focus:ring-[#c25e19] focus:outline-hidden">
                         </div>
                         <div>
                             <label class="block text-[11px] font-bold uppercase tracking-wider text-stone-600 mb-1">Check-Out</label>
-                            <input type="date" name="check_out_date" x-model="checkOut" min="{{ now()->addDay()->format('Y-m-d') }}" required class="w-full px-3 py-2.5 rounded-xl border border-stone-200 text-xs font-medium focus:ring-2 focus:ring-[#c25e19] focus:outline-hidden">
+                            <input type="date" name="check_out_date" x-model="checkOut" min="{{ now()->addDay()->format('Y-m-d') }}" required class="w-full px-3 py-2.5 rounded-xl border border-stone-200 text-xs font-semibold focus:ring-2 focus:ring-[#c25e19] focus:outline-hidden">
                         </div>
                     </div>
 
                     <div class="grid grid-cols-2 gap-3">
                         <div>
                             <label class="block text-[11px] font-bold uppercase tracking-wider text-stone-600 mb-1">Adults</label>
-                            <input type="number" name="adults" value="2" min="1" max="{{ $room->capacity_adults }}" required class="w-full px-3 py-2.5 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#c25e19] focus:outline-hidden">
+                            <input type="number" name="adults" value="2" min="1" max="{{ $room->capacity_adults }}" required class="w-full px-3 py-2.5 rounded-xl border border-stone-200 text-xs font-semibold focus:ring-2 focus:ring-[#c25e19] focus:outline-hidden">
                         </div>
                         <div>
                             <label class="block text-[11px] font-bold uppercase tracking-wider text-stone-600 mb-1">Children</label>
-                            <input type="number" name="children" value="0" min="0" max="{{ $room->capacity_children }}" class="w-full px-3 py-2.5 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#c25e19] focus:outline-hidden">
+                            <input type="number" name="children" value="0" min="0" max="{{ $room->capacity_children }}" class="w-full px-3 py-2.5 rounded-xl border border-stone-200 text-xs font-semibold focus:ring-2 focus:ring-[#c25e19] focus:outline-hidden">
                         </div>
                     </div>
 
                     <div>
                         <label class="block text-[11px] font-bold uppercase tracking-wider text-stone-600 mb-1">Guest Full Name</label>
-                        <input type="text" name="guest_name" required placeholder="e.g. Aarav Sharma" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#c25e19] focus:outline-hidden">
+                        <input type="text" name="guest_name" required placeholder="e.g. Aarav Sharma" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-xs font-semibold focus:ring-2 focus:ring-[#c25e19] focus:outline-hidden">
                     </div>
 
                     <div>
                         <label class="block text-[11px] font-bold uppercase tracking-wider text-stone-600 mb-1">WhatsApp / Phone Number</label>
-                        <input type="tel" name="guest_phone" required placeholder="e.g. 9841234567" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#c25e19] focus:outline-hidden">
+                        <input type="tel" name="guest_phone" required placeholder="e.g. 9841234567" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-xs font-semibold focus:ring-2 focus:ring-[#c25e19] focus:outline-hidden">
                     </div>
 
                     <div>
                         <label class="block text-[11px] font-bold uppercase tracking-wider text-stone-600 mb-1">Email Address</label>
-                        <input type="email" name="guest_email" required placeholder="e.g. aarav@example.com" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#c25e19] focus:outline-hidden">
+                        <input type="email" name="guest_email" required placeholder="e.g. aarav@example.com" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-xs font-semibold focus:ring-2 focus:ring-[#c25e19] focus:outline-hidden">
                     </div>
 
                     <div>
                         <label class="block text-[11px] font-bold uppercase tracking-wider text-stone-600 mb-1">Special Requests (Optional)</label>
-                        <textarea name="special_requests" rows="2" placeholder="Jeep safari timing, airport pickup, dietary notes..." class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#c25e19] focus:outline-hidden"></textarea>
+                        <textarea name="special_requests" rows="2" placeholder="Jeep safari timing, airport pickup, dietary notes..." class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-xs font-semibold focus:ring-2 focus:ring-[#c25e19] focus:outline-hidden"></textarea>
                     </div>
 
                     <!-- Price Estimate Breakdown -->
@@ -197,25 +197,25 @@
                         </div>
                         <div class="flex justify-between text-stone-600">
                             <span>Breakfast & Wi-Fi</span>
-                            <span class="text-emerald-700 font-semibold">FREE</span>
+                            <span class="text-emerald-700 font-bold">FREE</span>
                         </div>
                         <div class="pt-2 border-t border-[#eae4d8] flex justify-between font-bold text-stone-900 text-sm">
                             <span>Estimated Total:</span>
-                            <span class="text-[#c25e19] font-serif-luxury text-base">NPR <span x-text="totalAmount.toLocaleString()"></span></span>
+                            <span class="text-[#c25e19] font-extrabold text-base tracking-tight">NPR <span x-text="totalAmount.toLocaleString()"></span></span>
                         </div>
                     </div>
 
-                    <button type="submit" class="w-full py-4 px-4 rounded-xl bg-[#c25e19] hover:bg-[#d96b20] text-white font-semibold text-xs uppercase tracking-widest shadow-md hover:shadow-lg transition active:scale-98">
+                    <button type="submit" class="w-full py-4 px-4 rounded-xl bg-[#c25e19] hover:bg-[#d96b20] text-white font-bold text-xs uppercase tracking-widest shadow-md hover:shadow-lg transition active:scale-98">
                         Submit Direct Reservation Request
                     </button>
-                    <p class="text-[11px] text-center text-stone-400">
+                    <p class="text-[11px] text-center text-stone-400 font-medium">
                         ⚡ Instant confirmation code issued. No advance credit card required.
                     </p>
                 </form>
 
                 <!-- Front Desk Hotline -->
                 <div class="mt-6 pt-6 border-t border-[#eae4d8] text-center">
-                    <span class="text-[11px] text-stone-500 block mb-1">Prefer instant telephone booking?</span>
+                    <span class="text-[11px] text-stone-500 block mb-1 font-medium">Prefer instant telephone booking?</span>
                     <a href="tel:9749382246" class="text-xs font-bold text-[#c25e19] hover:underline">📞 Call 9749382246 / 078-545455</a>
                 </div>
             </div>

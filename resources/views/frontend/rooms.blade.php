@@ -12,8 +12,8 @@
     </div>
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <span class="text-xs font-bold uppercase tracking-widest text-[#f08235] mb-2 block">Accommodations</span>
-        <h1 class="text-4xl sm:text-6xl font-normal font-serif-luxury mb-4">Rooms & Suites</h1>
-        <p class="max-w-xl mx-auto text-stone-300 text-sm sm:text-base font-light">
+        <h1 class="text-4xl sm:text-6xl font-black mb-4 tracking-tight">Rooms & Suites</h1>
+        <p class="max-w-xl mx-auto text-stone-300 text-sm sm:text-base font-normal">
             Serenity by the Narayani River. Select from our comfortable Deluxe rooms to expansive Riverfront Balcony suites.
         </p>
     </div>
@@ -26,12 +26,12 @@
         <!-- Category Filter Tabs -->
         <div class="flex flex-wrap items-center justify-center gap-2 mb-16">
             <a href="{{ route('rooms.index') }}" 
-               class="px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 {{ empty($categorySlug) ? 'bg-[#c25e19] text-white shadow-md' : 'bg-white text-stone-700 hover:bg-[#faf7f2] border border-[#eae4d8]' }}">
+               class="px-6 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 {{ empty($categorySlug) ? 'bg-[#c25e19] text-white shadow-md' : 'bg-white text-stone-700 hover:bg-[#faf7f2] border border-[#eae4d8]' }}">
                 All Rooms ({{ $rooms->count() }})
             </a>
             @foreach($categories as $cat)
                 <a href="{{ route('rooms.index', ['category' => $cat->slug]) }}" 
-                   class="px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 {{ $categorySlug === $cat->slug ? 'bg-[#c25e19] text-white shadow-md' : 'bg-white text-stone-700 hover:bg-[#faf7f2] border border-[#eae4d8]' }}">
+                   class="px-6 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 {{ $categorySlug === $cat->slug ? 'bg-[#c25e19] text-white shadow-md' : 'bg-white text-stone-700 hover:bg-[#faf7f2] border border-[#eae4d8]' }}">
                     {{ $cat->name }} ({{ $cat->rooms_count }})
                 </a>
             @endforeach
@@ -45,13 +45,13 @@
                     <div class="relative h-64 overflow-hidden bg-stone-100">
                         <img src="{{ $room->featured_image_url }}" alt="{{ $room->name }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute top-4 left-4">
-                            <span class="px-3 py-1 rounded-full bg-[#14281d]/85 backdrop-blur-md text-white text-[11px] font-semibold uppercase tracking-wider">
+                            <span class="px-3 py-1 rounded-full bg-[#14281d]/85 backdrop-blur-md text-white text-[11px] font-bold uppercase tracking-wider">
                                 {{ $room->view_type }}
                             </span>
                         </div>
                         <div class="absolute bottom-4 right-4 px-4 py-2 rounded-2xl bg-white/95 backdrop-blur-md shadow-md text-right border border-white/60">
                             <span class="text-[10px] text-stone-500 block uppercase font-bold tracking-wider">Nightly Rate</span>
-                            <span class="text-xl font-normal font-serif-luxury text-[#c25e19]">NPR {{ number_format($room->base_price) }}</span>
+                            <span class="text-xl font-extrabold text-[#c25e19] tracking-tight">NPR {{ number_format($room->base_price) }}</span>
                         </div>
                     </div>
 
@@ -61,10 +61,10 @@
                             <span class="text-[11px] font-bold uppercase tracking-widest text-[#c25e19] block mb-1">
                                 {{ $room->category?->name ?? 'Resort Suite' }}
                             </span>
-                            <h3 class="text-2xl font-normal font-serif-luxury text-stone-900 mb-2 group-hover:text-[#c25e19] transition-colors">
+                            <h3 class="text-2xl font-bold text-stone-900 mb-2 group-hover:text-[#c25e19] transition-colors tracking-tight">
                                 <a href="{{ route('rooms.show', $room->slug) }}">{{ $room->name }}</a>
                             </h3>
-                            <p class="text-stone-500 text-xs sm:text-sm line-clamp-2 leading-relaxed mb-5 font-light">
+                            <p class="text-stone-500 text-xs sm:text-sm line-clamp-2 leading-relaxed mb-5 font-normal">
                                 {{ $room->short_description ?? 'Designed with natural wood interiors, en-suite modern bath, and refreshing views of the resort grounds.' }}
                             </p>
 
@@ -72,7 +72,7 @@
                             @if(!empty($room->amenities))
                                 <div class="flex flex-wrap gap-1.5 mb-6">
                                     @foreach(array_slice($room->amenities, 0, 4) as $amenity)
-                                        <span class="px-2.5 py-1 rounded-lg bg-[#faf7f2] border border-[#eae4d8] text-[11px] text-stone-600 font-medium">
+                                        <span class="px-2.5 py-1 rounded-lg bg-[#faf7f2] border border-[#eae4d8] text-[11px] text-stone-600 font-semibold">
                                             ✓ {{ $amenity }}
                                         </span>
                                     @endforeach
@@ -82,14 +82,14 @@
 
                         <!-- Card Footer -->
                         <div class="pt-5 border-t border-[#eae4d8] flex items-center justify-between">
-                            <div class="text-xs text-stone-500 font-medium">
+                            <div class="text-xs text-stone-500 font-semibold">
                                 👥 Max {{ $room->max_adults }} Adults
                             </div>
                             <div class="flex items-center gap-2">
                                 <a href="{{ route('rooms.show', $room->slug) }}" class="text-xs uppercase tracking-wider font-bold text-stone-600 hover:text-[#c25e19] transition">
                                     Specs
                                 </a>
-                                <a href="{{ route('rooms.show', $room->slug) }}" class="px-4 py-2 rounded-xl bg-[#c25e19] hover:bg-[#d96b20] text-white text-xs font-semibold uppercase tracking-wider transition-all duration-300 shadow-xs">
+                                <a href="{{ route('rooms.show', $room->slug) }}" class="px-4 py-2 rounded-xl bg-[#c25e19] hover:bg-[#d96b20] text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-xs">
                                     Reserve
                                 </a>
                             </div>
@@ -99,9 +99,9 @@
             @empty
                 <div class="col-span-3 text-center py-16 bg-white rounded-3xl border border-[#eae4d8]">
                     <span class="text-4xl block mb-2">🌿</span>
-                    <h3 class="text-lg font-bold text-stone-800 font-serif-luxury">No rooms found in this category</h3>
+                    <h3 class="text-lg font-bold text-stone-800">No rooms found in this category</h3>
                     <p class="text-xs text-stone-500 mt-1">Please explore other room categories or contact our front desk.</p>
-                    <a href="{{ route('rooms.index') }}" class="mt-4 inline-block px-5 py-2 rounded-xl bg-[#14281d] text-white text-xs uppercase font-semibold">View All Rooms</a>
+                    <a href="{{ route('rooms.index') }}" class="mt-4 inline-block px-5 py-2 rounded-xl bg-[#14281d] text-white text-xs uppercase font-bold">View All Rooms</a>
                 </div>
             @endforelse
         </div>
