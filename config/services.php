@@ -40,4 +40,9 @@ return [
         'apikey' => env('CALLMEBOT_APIKEY', '8408340'),
     ],
 
+    'ntfy' => [
+        'topic' => env('NTFY_TOPIC', 'chitwan-resort-9802350986'),
+        'server' => env('NTFY_SERVER', 'https://ntfy.sh'),
+    ],
+
 ];

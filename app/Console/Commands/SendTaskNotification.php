@@ -8,8 +8,8 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
-#[Signature('notify:whatsapp {message? : Optional notification text}')]
-#[Description('Send a WhatsApp notification to the administrator via CallMeBot')]
+#[Signature('notify:task {message? : Optional notification text} {--title= : Custom notification title}')]
+#[Description('Send a task completion push notification to the administrator via ntfy.sh')]
 class SendTaskNotification extends Command
 {
     /**
@@ -17,42 +17,44 @@ class SendTaskNotification extends Command
      */
     public function handle(): int
     {
-        $phone = config('services.callmebot.phone');
-        $apikey = config('services.callmebot.apikey');
+        $server = rtrim((string) config('services.ntfy.server', 'https://ntfy.sh'), '/');
+        $topic = (string) config('services.ntfy.topic', 'chitwan-resort-9802350986');
 
-        if (blank($phone) || blank($apikey)) {
-            $this->warn('CallMeBot phone or API key not configured.');
+        if (blank($topic)) {
+            $this->warn('ntfy topic is not configured.');
 
             return self::FAILURE;
         }
 
+        $title = $this->option('title') ?: 'Chitwan Resort — Task Completed';
         $message = $this->argument('message')
-            ?: "✅ Chitwan Resort Task Completed:\nAll code changes, Pint formatting, test suites, and git push to main succeeded.";
+            ?: 'All code changes, Pint formatting, test suites, and git push to main succeeded.';
 
-        $this->info("Sending WhatsApp notification to {$phone}...");
+        $this->info("Sending push notification to {$server}/{$topic}...");
 
         try {
-            $response = Http::timeout(15)->get('https://api.callmebot.com/whatsapp.php', [
-                'phone' => $phone,
-                'text' => $message,
-                'apikey' => $apikey,
-            ]);
+            $response = Http::timeout(10)
+                ->withHeaders([
+                    'Title' => $title,
+                    'Priority' => 'high',
+                    'Tags' => 'white_check_mark,sparkles',
+                    'Click' => 'https://github.com/0xyzone/chitwanresort',
+                ])
+                ->post("{$server}/{$topic}", $message);
 
-            $body = $response->body();
+            if ($response->successful()) {
+                $this->info('Push notification delivered successfully via ntfy.sh!');
 
-            if (str_contains(strtolower($body), 'error') || str_contains(strtolower($body), 'invalid')) {
-                $this->error("CallMeBot returned an issue: {$body}");
-                Log::warning('CallMeBot notification warning', ['response' => $body]);
-
-                return self::FAILURE;
+                return self::SUCCESS;
             }
 
-            $this->info('WhatsApp notification sent successfully!');
+            $this->error("ntfy returned an error: HTTP {$response->status()} - {$response->body()}");
+            Log::warning('ntfy notification error', ['response' => $response->body()]);
 
-            return self::SUCCESS;
+            return self::FAILURE;
         } catch (\Throwable $e) {
-            $this->error("Failed to connect to CallMeBot: {$e->getMessage()}");
-            Log::error('CallMeBot dispatch exception', ['exception' => $e]);
+            $this->error("Failed to connect to ntfy: {$e->getMessage()}");
+            Log::error('ntfy dispatch exception', ['exception' => $e]);
 
             return self::FAILURE;
         }
