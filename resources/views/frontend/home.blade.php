@@ -18,9 +18,9 @@
     <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 text-center">
         
         <!-- Live Location Badge -->
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-amber-300 text-xs sm:text-sm font-bold tracking-wider uppercase mb-5 shadow-sm">
+        {{-- <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-amber-300 text-xs sm:text-sm font-bold tracking-wider uppercase mb-5 shadow-sm">
             <span>🌿 Piprahar, Devchuli • Narayani Riverfront • Chitwan Buffer Zone</span>
-        </div>
+        </div> --}}
 
         <!-- Headline in Poppins (Bold & Clean) -->
         <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-white mb-4 leading-tight tracking-tight">
