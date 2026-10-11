@@ -34,50 +34,50 @@
 </head>
 <body class="bg-[#fcfbf9] text-stone-900 font-sans antialiased selection:bg-[#c25e19] selection:text-white flex flex-col min-h-screen" x-data="{ mobileNav: false }">
 
-    <!-- Top Announcement Bar -->
-    <div class="bg-[#14281d] text-white text-xs sm:text-sm py-2.5 px-4 border-b border-white/10">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-            <div class="flex items-center space-x-3 text-center sm:text-left">
-                <span class="flex items-center justify-center gap-1.5 text-stone-200 font-medium tracking-wide">
-                    <svg class="w-4 h-4 text-[#f08235] shrink-0" fill="currentColor" viewBox="0 0 20 20">
+    <!-- Top Announcement Bar (Clean on Desktop, Hidden on Mobile for Zero Clutter) -->
+    <div class="hidden sm:block bg-[#14281d] text-white text-xs py-2 px-4 border-b border-white/10">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3 text-stone-300 font-medium">
+                <span class="flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5 text-[#f08235]" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
                     </svg>
-                    Devchuli-17, Piprahar, Nawalparasi
+                    Devchuli-17, Piprahar, Nawalparasi, Nepal
                 </span>
-                <span class="hidden md:inline-block text-stone-500">|</span>
-                <span class="hidden md:flex items-center gap-1.5 text-stone-200 font-medium">
-                    <svg class="w-4 h-4 text-[#f08235] shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <span class="text-stone-600">|</span>
+                <span class="flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5 text-[#f08235]" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
                         <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
                     </svg>
                     info@chitwantigerresorts.com
                 </span>
             </div>
-            <div class="flex items-center space-x-3 text-xs sm:text-sm font-semibold">
-                <a href="tel:078545455" class="text-white hover:text-[#f08235] transition-colors py-0.5">📞 078-545455</a>
-                <span class="text-stone-500">•</span>
-                <a href="tel:9749382246" class="text-[#f08235] hover:underline py-0.5">9749382246</a>
-                <a href="{{ url('/mukhiyadwar') }}" class="ml-2 px-3 py-1 rounded-full bg-white/10 text-stone-200 hover:text-white hover:bg-white/20 text-xs border border-white/10 transition">
+            <div class="flex items-center space-x-4 text-xs font-semibold">
+                <a href="tel:078545455" class="text-white hover:text-[#f08235] transition-colors">📞 078-545455</a>
+                <span class="text-stone-600">•</span>
+                <a href="tel:9749382246" class="text-[#f08235] hover:underline">9749382246</a>
+                <a href="{{ url('/mukhiyadwar') }}" class="ml-2 px-2.5 py-0.5 rounded-full bg-white/10 text-stone-200 hover:text-white hover:bg-white/20 text-[11px] border border-white/10 transition">
                     Staff Portal
                 </a>
             </div>
         </div>
     </div>
 
-    <!-- Main Navigation Header -->
+    <!-- Main Navigation Header (Clean, Compact & Professional on Mobile) -->
     <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#eae4d8] shadow-xs">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Brand Logo -->
-            <a href="{{ route('home') }}" class="flex items-center gap-3.5 group">
-                <div class="w-12 h-12 rounded-2xl bg-[#14281d] border border-amber-600/30 flex items-center justify-center text-2xl shadow-md group-hover:scale-105 transition-transform duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+            <!-- Brand Logo & Clean Responsive Title -->
+            <a href="{{ route('home') }}" class="flex items-center gap-2.5 sm:gap-3.5 group min-w-0 pr-2">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#14281d] border border-amber-600/30 flex items-center justify-center text-xl sm:text-2xl shadow-sm shrink-0 group-hover:scale-105 transition-transform duration-300">
                     🐅
                 </div>
-                <div>
-                    <span class="block text-lg sm:text-xl font-bold tracking-tight text-[#14281d] group-hover:text-[#c25e19] transition-colors leading-tight">
+                <div class="min-w-0">
+                    <span class="block text-sm sm:text-lg md:text-xl font-black tracking-tight text-[#14281d] group-hover:text-[#c25e19] transition-colors leading-tight truncate">
                         Sishwar Chitwan Tiger Resort
                     </span>
-                    <span class="block text-xs uppercase tracking-wider text-stone-600 font-semibold mt-0.5">
-                        Devchuli, Piprahar • Narayani Riverbank
+                    <span class="block text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-[#c25e19] truncate">
+                        Piprahar • Narayani Riverbank
                     </span>
                 </div>
             </a>
@@ -102,7 +102,7 @@
             </nav>
 
             <!-- Book CTA (Desktop) -->
-            <div class="hidden sm:flex items-center gap-3">
+            <div class="hidden sm:flex items-center gap-3 shrink-0">
                 <a href="https://wa.me/9779749382246?text=Namaste%2C%20I%20would%20like%20to%20inquire%20about%20booking%20at%20Sishwar%20Chitwan%20Tiger%20Resort." 
                    target="_blank" 
                    class="p-2.5 rounded-xl text-emerald-800 bg-emerald-50 hover:bg-emerald-100 transition border border-emerald-300 font-semibold flex items-center gap-1.5 text-xs" 
@@ -112,31 +112,78 @@
                     </svg>
                     <span>WhatsApp</span>
                 </a>
-                <a href="{{ route('rooms.index') }}" class="px-5 py-3 rounded-xl bg-[#c25e19] hover:bg-[#d96b20] text-white font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all active:scale-95 flex items-center gap-2">
+                <a href="{{ route('rooms.index') }}" class="px-5 py-2.5 rounded-xl bg-[#c25e19] hover:bg-[#d96b20] text-white font-bold text-xs uppercase tracking-wider shadow-sm hover:shadow-md transition-all active:scale-95 flex items-center gap-2">
                     <span>Reserve a Room</span>
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                 </a>
             </div>
 
-            <!-- Mobile Hamburger Button -->
-            <button type="button" class="lg:hidden p-3 rounded-xl text-stone-800 hover:bg-stone-100 border border-stone-300" @click="mobileNav = !mobileNav" aria-label="Toggle Navigation Menu">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path x-show="!mobileNav" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/>
-                    <path x-show="mobileNav" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+            <!-- Modern Mobile Menu Toggle Button -->
+            <button type="button" 
+                    class="lg:hidden px-3 py-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-800 font-bold text-xs flex items-center gap-1.5 border border-stone-200 transition" 
+                    @click="mobileNav = !mobileNav" 
+                    aria-label="Toggle Navigation Menu">
+                <span class="text-xs uppercase font-extrabold tracking-wider" x-text="mobileNav ? 'Close' : 'Menu'">Menu</span>
+                <svg class="w-5 h-5 text-stone-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path x-show="!mobileNav" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 6h16M4 12h16M4 18h16"/>
+                    <path x-show="mobileNav" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M6 18L18 6M6 6l12 12"/>
                 </svg>
             </button>
         </div>
 
-        <!-- Mobile Drawer Navigation -->
-        <div x-show="mobileNav" x-collapse class="lg:hidden border-t border-[#eae4d8] bg-white px-5 pt-4 pb-8 space-y-3.5 shadow-xl">
-            <a href="{{ route('home') }}" class="block px-4 py-3 rounded-xl text-base font-bold text-stone-900 hover:bg-[#faf7f2] hover:text-[#c25e19]">Home</a>
-            <a href="{{ route('rooms.index') }}" class="block px-4 py-3 rounded-xl text-base font-bold text-stone-900 hover:bg-[#faf7f2] hover:text-[#c25e19]">Rooms & Suites</a>
-            <a href="{{ route('activities.index') }}" class="block px-4 py-3 rounded-xl text-base font-bold text-stone-900 hover:bg-[#faf7f2] hover:text-[#c25e19]">Safaris & Activities</a>
-            <a href="{{ route('gallery.index') }}" class="block px-4 py-3 rounded-xl text-base font-bold text-stone-900 hover:bg-[#faf7f2] hover:text-[#c25e19]">Photo Gallery</a>
-            <a href="{{ route('contact') }}" class="block px-4 py-3 rounded-xl text-base font-bold text-stone-900 hover:bg-[#faf7f2] hover:text-[#c25e19]">Contact Us & Location</a>
-            <div class="pt-4 border-t border-stone-200 flex flex-col gap-3">
-                <a href="{{ route('rooms.index') }}" class="w-full text-center py-3.5 rounded-xl bg-[#c25e19] text-white text-sm font-bold shadow-md">Reserve Room Now</a>
-                <a href="tel:078545455" class="w-full text-center py-3.5 rounded-xl bg-stone-900 text-white text-sm font-bold shadow-md">📞 Call Front Desk (078-545455)</a>
+        <!-- Mobile Drawer Navigation (Spacious, Welcoming & Clean) -->
+        <div x-show="mobileNav" 
+             x-collapse 
+             class="lg:hidden border-t border-[#eae4d8] bg-white px-5 pt-4 pb-8 space-y-3 shadow-2xl">
+            
+            <div class="space-y-1">
+                <a href="{{ route('home') }}" 
+                   class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-bold text-stone-900 hover:bg-[#faf7f2] hover:text-[#c25e19] transition">
+                    <span>🏠</span>
+                    <span>Resort Overview</span>
+                </a>
+                <a href="{{ route('rooms.index') }}" 
+                   class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-bold text-stone-900 hover:bg-[#faf7f2] hover:text-[#c25e19] transition">
+                    <span>🛏️</span>
+                    <span>Rooms & Suites (NPR)</span>
+                </a>
+                <a href="{{ route('activities.index') }}" 
+                   class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-bold text-stone-900 hover:bg-[#faf7f2] hover:text-[#c25e19] transition">
+                    <span>🦏</span>
+                    <span>Safaris & River Activities</span>
+                </a>
+                <a href="{{ route('gallery.index') }}" 
+                   class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-bold text-stone-900 hover:bg-[#faf7f2] hover:text-[#c25e19] transition">
+                    <span>📸</span>
+                    <span>Photo & Video Gallery</span>
+                </a>
+                <a href="{{ route('contact') }}" 
+                   class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-bold text-stone-900 hover:bg-[#faf7f2] hover:text-[#c25e19] transition">
+                    <span>📍</span>
+                    <span>Contact & Location Map</span>
+                </a>
+            </div>
+
+            <!-- Quick Direct Reservation Card inside Drawer -->
+            <div class="pt-4 border-t border-stone-100 space-y-2.5">
+                <a href="{{ route('rooms.index') }}" class="w-full text-center py-3.5 rounded-xl bg-[#c25e19] hover:bg-[#d96b20] text-white text-sm font-bold shadow-md block">
+                    Check Room Rates & Reserve
+                </a>
+
+                <div class="grid grid-cols-2 gap-2 pt-1">
+                    <a href="tel:078545455" class="py-2.5 px-2 text-center rounded-xl bg-stone-900 text-white text-xs font-bold block">
+                        📞 078-545455
+                    </a>
+                    <a href="https://wa.me/9779749382246" target="_blank" class="py-2.5 px-2 text-center rounded-xl bg-emerald-700 text-white text-xs font-bold block">
+                        WhatsApp Desk
+                    </a>
+                </div>
+
+                <div class="text-center pt-2">
+                    <a href="{{ url('/mukhiyadwar') }}" class="text-xs text-stone-500 hover:text-stone-800 underline font-medium">
+                        Staff & Admin Portal Login →
+                    </a>
+                </div>
             </div>
         </div>
     </header>

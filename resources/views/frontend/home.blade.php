@@ -5,144 +5,55 @@
 
 @section('content')
 
-<!-- 1. Hero Section with Interactive Highlights, Featured Cards & Availability Engine -->
-<section class="relative bg-stone-950 text-white min-h-[92vh] flex items-center justify-center overflow-hidden">
+<!-- 1. Streamlined Hero Section (Clean, Spacious & Unclustered) -->
+<section class="relative bg-stone-950 text-white min-h-[82vh] flex items-center justify-center overflow-hidden">
     <!-- Hero Background Image & Atmospheric Lighting -->
     <div class="absolute inset-0 z-0 overflow-hidden">
         <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=2200&q=85" 
              alt="Chitwan National Park Riverbank & Safari Wilderness" 
              class="w-full h-full object-cover object-center filter brightness-[0.38] animate-ken-burns">
-        <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/45 to-stone-950/75"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-stone-950/70"></div>
     </div>
 
-    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center">
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 text-center">
         
-        <!-- Live Location & River Status Badge -->
-        <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-amber-300 text-xs sm:text-sm font-bold tracking-wider uppercase mb-6 shadow-md animate-float-gentle">
-            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
-            <span>Piprahar, Devchuli-17 • Narayani Riverfront • Chitwan Buffer Zone</span>
+        <!-- Live Location Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-amber-300 text-xs sm:text-sm font-bold tracking-wider uppercase mb-5 shadow-sm">
+            <span>🌿 Piprahar, Devchuli • Narayani Riverfront • Chitwan Buffer Zone</span>
         </div>
 
-        <!-- Headline in Poppins (Bold & Modern) -->
-        <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-5 leading-tight tracking-tight">
+        <!-- Headline in Poppins (Bold & Clean) -->
+        <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-white mb-4 leading-tight tracking-tight">
             Where Raw Wildlife Meets <br class="hidden sm:inline" />
             <span class="text-[#f08235]">
                 Peaceful Riverfront Hospitality
             </span>
         </h1>
 
-        <!-- Subheadline (Senior-Friendly High Contrast) -->
-        <p class="max-w-3xl mx-auto text-stone-100 text-base sm:text-lg md:text-xl font-normal mb-8 leading-relaxed">
-            Escape the busy tourist streets. Relax beside the tranquil Narayani River in Piprahar, Devchuli, with clean comfortable rooms from 
-            <strong class="font-bold text-amber-300">NPR 2,500</strong>, guided Rhino Jeep safaris, and authentic Tharu hospitality.
+        <!-- Subheadline (Clean, 2 Lines, Senior-Friendly) -->
+        <p class="max-w-2xl mx-auto text-stone-100 text-base sm:text-lg font-normal mb-8 leading-relaxed">
+            Tranquil riverside sanctuary in Piprahar, Devchuli. Clean comfortable rooms starting from 
+            <strong class="font-bold text-amber-300">NPR 2,500</strong> with guided Chitwan safari adventures.
         </p>
 
-        <!-- Interactive Quick Highlight Pills (Clickable Category Badges) -->
-        <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mb-10 max-w-4xl mx-auto">
-            <a href="{{ route('activities.index') }}" 
-               class="px-4 py-2 rounded-xl bg-white/10 hover:bg-[#c25e19] text-white text-xs sm:text-sm font-bold border border-white/20 transition-all flex items-center gap-2 group">
-                <span class="text-base">🦏</span>
-                <span>Chitwan Jeep Safari</span>
-            </a>
-            <a href="{{ route('activities.index') }}" 
-               class="px-4 py-2 rounded-xl bg-white/10 hover:bg-[#c25e19] text-white text-xs sm:text-sm font-bold border border-white/20 transition-all flex items-center gap-2 group">
-                <span class="text-base">🛶</span>
-                <span>Narayani River Boating</span>
-            </a>
-            <a href="{{ route('rooms.index') }}" 
-               class="px-4 py-2 rounded-xl bg-white/10 hover:bg-[#c25e19] text-white text-xs sm:text-sm font-bold border border-white/20 transition-all flex items-center gap-2 group">
-                <span class="text-base">🛏️</span>
-                <span>Rooms From NPR 2,500</span>
-            </a>
-            <a href="{{ route('activities.index') }}" 
-               class="px-4 py-2 rounded-xl bg-white/10 hover:bg-[#c25e19] text-white text-xs sm:text-sm font-bold border border-white/20 transition-all flex items-center gap-2 group">
-                <span class="text-base">🪘</span>
-                <span>Tharu Culture & Cuisine</span>
-            </a>
-            <a href="tel:078545455" 
-               class="px-4 py-2 rounded-xl bg-emerald-700/80 hover:bg-emerald-600 text-white text-xs sm:text-sm font-bold border border-emerald-400/30 transition-all flex items-center gap-2">
-                <span class="text-base">📞</span>
-                <span>Call Desk: 078-545455</span>
-            </a>
-        </div>
-
-        <!-- 3 Interactive Highlight / Action Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 text-left">
-            <!-- Card 1: Featured Room Spotlight -->
-            <div class="p-5 rounded-2xl bg-white/15 backdrop-blur-md border border-white/20 hover:border-amber-300 transition-all group flex flex-col justify-between">
-                <div>
-                    <div class="flex justify-between items-start mb-2">
-                        <span class="text-xs uppercase font-bold text-amber-300">Popular Room</span>
-                        <span class="text-xs bg-black/60 px-2 py-0.5 rounded-md font-bold text-white">River View</span>
-                    </div>
-                    <h4 class="text-base sm:text-lg font-bold text-white group-hover:text-amber-300 transition">Deluxe King with Balcony</h4>
-                    <p class="text-xs text-stone-200 mt-1">King bed, private riverbank balcony & breakfast included.</p>
-                </div>
-                <div class="pt-4 mt-3 border-t border-white/15 flex items-center justify-between">
-                    <span class="text-base font-black text-amber-300">NPR 4,500 <span class="text-[11px] font-normal text-stone-300">/ night</span></span>
-                    <a href="{{ route('rooms.index') }}" class="text-xs font-bold text-white bg-[#c25e19] px-3 py-1.5 rounded-lg hover:bg-[#d96b20] transition">
-                        Reserve →
-                    </a>
-                </div>
-            </div>
-
-            <!-- Card 2: Safari Adventure Spotlight -->
-            <div class="p-5 rounded-2xl bg-white/15 backdrop-blur-md border border-white/20 hover:border-amber-300 transition-all group flex flex-col justify-between">
-                <div>
-                    <div class="flex justify-between items-start mb-2">
-                        <span class="text-xs uppercase font-bold text-amber-300">Buffer Zone Safari</span>
-                        <span class="text-xs bg-emerald-800/80 px-2 py-0.5 rounded-md font-bold text-white">Daily Trips</span>
-                    </div>
-                    <h4 class="text-base sm:text-lg font-bold text-white group-hover:text-amber-300 transition">One-Horned Rhino Jeep Tour</h4>
-                    <p class="text-xs text-stone-200 mt-1">Certified naturalist guided safari in Chitwan National Park.</p>
-                </div>
-                <div class="pt-4 mt-3 border-t border-white/15 flex items-center justify-between">
-                    <span class="text-xs text-stone-300 font-semibold">Morning & Sunset Trips</span>
-                    <a href="{{ route('activities.index') }}" class="text-xs font-bold text-white bg-white/20 px-3 py-1.5 rounded-lg hover:bg-white/30 transition">
-                        Itinerary →
-                    </a>
-                </div>
-            </div>
-
-            <!-- Card 3: 1-Tap Telephone Hotline -->
-            <div class="p-5 rounded-2xl bg-emerald-900/60 backdrop-blur-md border border-emerald-400/30 transition-all flex flex-col justify-between">
-                <div>
-                    <div class="flex justify-between items-start mb-2">
-                        <span class="text-xs uppercase font-bold text-emerald-300">Direct Inquiries</span>
-                        <span class="text-xs bg-emerald-800 px-2 py-0.5 rounded-md font-bold text-white">24/7 Desk</span>
-                    </div>
-                    <h4 class="text-base sm:text-lg font-bold text-white">Instant Telephone Help</h4>
-                    <p class="text-xs text-stone-200 mt-1">Talk with our front desk staff directly for special rates.</p>
-                </div>
-                <div class="pt-4 mt-3 border-t border-white/15 flex items-center gap-2">
-                    <a href="tel:078545455" class="flex-1 py-1.5 text-center bg-white text-stone-900 rounded-lg text-xs font-bold hover:bg-stone-100 transition">
-                        078-545455
-                    </a>
-                    <a href="tel:9749382246" class="flex-1 py-1.5 text-center bg-[#c25e19] text-white rounded-lg text-xs font-bold hover:bg-[#d96b20] transition">
-                        9749382246
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Check Availability Engine Card -->
-        <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border-2 border-stone-200 max-w-4xl mx-auto text-left">
-            <h3 class="text-stone-900 font-bold text-base sm:text-lg mb-4 flex items-center gap-2">
+        <!-- Clean Check Availability Engine Card -->
+        <div class="bg-white rounded-3xl p-5 sm:p-7 shadow-2xl border-2 border-stone-200 max-w-3xl mx-auto text-left">
+            <h3 class="text-stone-900 font-bold text-sm sm:text-base mb-3 flex items-center gap-2">
                 <span>📅</span>
-                <span>Check Room Availability & Direct Rates</span>
+                <span>Check Room Availability & Rates</span>
             </h3>
-            <form action="{{ route('rooms.index') }}" method="GET" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 items-end">
+            <form action="{{ route('rooms.index') }}" method="GET" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3.5 items-end">
                 <div>
-                    <label class="block text-xs sm:text-sm font-bold uppercase tracking-wider text-stone-800 mb-1.5">Check-In</label>
-                    <input type="date" name="check_in" value="{{ now()->format('Y-m-d') }}" min="{{ now()->format('Y-m-d') }}" class="w-full px-4 py-3 rounded-xl border-2 border-stone-300 text-base text-stone-900 font-semibold focus:ring-2 focus:ring-[#c25e19] focus:border-[#c25e19] transition">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1">Check-In</label>
+                    <input type="date" name="check_in" value="{{ now()->format('Y-m-d') }}" min="{{ now()->format('Y-m-d') }}" class="w-full px-3.5 py-2.5 rounded-xl border-2 border-stone-300 text-sm sm:text-base text-stone-900 font-semibold focus:ring-2 focus:ring-[#c25e19] focus:border-[#c25e19] transition">
                 </div>
                 <div>
-                    <label class="block text-xs sm:text-sm font-bold uppercase tracking-wider text-stone-800 mb-1.5">Check-Out</label>
-                    <input type="date" name="check_out" value="{{ now()->addDays(2)->format('Y-m-d') }}" min="{{ now()->addDay()->format('Y-m-d') }}" class="w-full px-4 py-3 rounded-xl border-2 border-stone-300 text-base text-stone-900 font-semibold focus:ring-2 focus:ring-[#c25e19] focus:border-[#c25e19] transition">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1">Check-Out</label>
+                    <input type="date" name="check_out" value="{{ now()->addDays(2)->format('Y-m-d') }}" min="{{ now()->addDay()->format('Y-m-d') }}" class="w-full px-3.5 py-2.5 rounded-xl border-2 border-stone-300 text-sm sm:text-base text-stone-900 font-semibold focus:ring-2 focus:ring-[#c25e19] focus:border-[#c25e19] transition">
                 </div>
                 <div>
-                    <label class="block text-xs sm:text-sm font-bold uppercase tracking-wider text-stone-800 mb-1.5">Room Type</label>
-                    <select name="category" class="w-full px-4 py-3 rounded-xl border-2 border-stone-300 text-base text-stone-900 font-semibold focus:ring-2 focus:ring-[#c25e19] focus:border-[#c25e19] transition">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1">Room Type</label>
+                    <select name="category" class="w-full px-3.5 py-2.5 rounded-xl border-2 border-stone-300 text-sm sm:text-base text-stone-900 font-semibold focus:ring-2 focus:ring-[#c25e19] focus:border-[#c25e19] transition">
                         <option value="">All Room Types</option>
                         @foreach($categories as $category)
                             <option value="{{ $category->slug }}">{{ $category->name }}</option>
@@ -150,7 +61,7 @@
                     </select>
                 </div>
                 <div>
-                    <button type="submit" class="w-full py-3.5 px-4 rounded-xl bg-stone-900 hover:bg-[#c25e19] text-white font-bold text-base transition-all shadow-md active:scale-95">
+                    <button type="submit" class="w-full py-3 px-4 rounded-xl bg-[#c25e19] hover:bg-[#d96b20] text-white font-bold text-sm sm:text-base transition-all shadow-md active:scale-95">
                         Search Rooms
                     </button>
                 </div>
@@ -161,32 +72,32 @@
 </section>
 
 <!-- 1.5 Trust & Guest Comfort Badges Strip -->
-<div class="bg-[#14281d] text-white py-6 border-y border-white/10">
+<div class="bg-[#14281d] text-white py-5 border-y border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div class="flex items-center justify-center gap-3">
-                <span class="text-2xl">☕</span>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
+            <div class="flex items-center justify-center gap-2.5">
+                <span class="text-xl">☕</span>
                 <div class="text-left">
                     <h5 class="text-xs sm:text-sm font-bold text-white leading-tight">Free Breakfast</h5>
                     <p class="text-[11px] text-stone-300 font-medium">Included with every room</p>
                 </div>
             </div>
-            <div class="flex items-center justify-center gap-3">
-                <span class="text-2xl">🚗</span>
+            <div class="flex items-center justify-center gap-2.5">
+                <span class="text-xl">🚗</span>
                 <div class="text-left">
                     <h5 class="text-xs sm:text-sm font-bold text-white leading-tight">Secure Parking</h5>
                     <p class="text-[11px] text-stone-300 font-medium">Free on-site parking</p>
                 </div>
             </div>
-            <div class="flex items-center justify-center gap-3">
-                <span class="text-2xl">📶</span>
+            <div class="flex items-center justify-center gap-2.5">
+                <span class="text-xl">📶</span>
                 <div class="text-left">
                     <h5 class="text-xs sm:text-sm font-bold text-white leading-tight">High-Speed Wi-Fi</h5>
                     <p class="text-[11px] text-stone-300 font-medium">Available across resort</p>
                 </div>
             </div>
-            <div class="flex items-center justify-center gap-3">
-                <span class="text-2xl">🛡️</span>
+            <div class="flex items-center justify-center gap-2.5">
+                <span class="text-xl">🛡️</span>
                 <div class="text-left">
                     <h5 class="text-xs sm:text-sm font-bold text-white leading-tight">24/7 Front Desk</h5>
                     <p class="text-[11px] text-stone-300 font-medium">Always here to assist</p>
@@ -195,6 +106,74 @@
         </div>
     </div>
 </div>
+
+<!-- 1.8 Spotlight Showcase Section (Spacious, Unclustered 3 Cards) -->
+<section class="py-12 sm:py-16 bg-[#faf7f2] border-b border-[#eae4d8]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-xl mx-auto mb-8">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#c25e19] mb-1 block">At A Glance</span>
+            <h3 class="text-xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">Experience SCTR Resort</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+            <!-- Card 1: Featured Room Spotlight -->
+            <div class="p-6 rounded-3xl bg-white border-2 border-stone-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="text-xs uppercase font-bold text-[#c25e19]">Featured Room</span>
+                        <span class="text-xs bg-stone-900 px-2.5 py-0.5 rounded-full font-bold text-white">River View</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-stone-900">Deluxe King with Balcony</h4>
+                    <p class="text-xs sm:text-sm text-stone-600 mt-1.5 leading-relaxed">Spacious king bed, private riverbank balcony & complimentary organic breakfast.</p>
+                </div>
+                <div class="pt-4 mt-4 border-t border-stone-100 flex items-center justify-between">
+                    <span class="text-lg font-black text-[#c25e19]">NPR 4,500 <span class="text-xs font-normal text-stone-500">/ night</span></span>
+                    <a href="{{ route('rooms.index') }}" class="text-xs font-bold text-white bg-[#c25e19] px-4 py-2 rounded-xl hover:bg-[#d96b20] transition">
+                        View Room →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 2: Safari Adventure Spotlight -->
+            <div class="p-6 rounded-3xl bg-white border-2 border-stone-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="text-xs uppercase font-bold text-[#c25e19]">Jungle Safari</span>
+                        <span class="text-xs bg-emerald-700 px-2.5 py-0.5 rounded-full font-bold text-white">Daily Trips</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-stone-900">One-Horned Rhino Jeep Safari</h4>
+                    <p class="text-xs sm:text-sm text-stone-600 mt-1.5 leading-relaxed">Certified naturalist guide tracking rhinos, deer, and exotic birds in Chitwan National Park.</p>
+                </div>
+                <div class="pt-4 mt-4 border-t border-stone-100 flex items-center justify-between">
+                    <span class="text-xs text-stone-500 font-bold">Morning & Afternoon Slots</span>
+                    <a href="{{ route('activities.index') }}" class="text-xs font-bold text-stone-900 bg-stone-100 hover:bg-stone-200 px-4 py-2 rounded-xl transition">
+                        Activities →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 3: 1-Tap Telephone Hotline -->
+            <div class="p-6 rounded-3xl bg-[#14281d] text-white shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="text-xs uppercase font-bold text-amber-300">Front Desk Assistance</span>
+                        <span class="text-xs bg-white/20 px-2.5 py-0.5 rounded-full font-bold text-white">24/7 Service</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Prefer to Call for Rates?</h4>
+                    <p class="text-xs sm:text-sm text-stone-300 mt-1.5 leading-relaxed">Speak directly with our front desk team for group bookings, packages, and seasonal offers.</p>
+                </div>
+                <div class="pt-4 mt-4 border-t border-white/10 flex items-center gap-2">
+                    <a href="tel:078545455" class="flex-1 py-2 text-center bg-white text-stone-900 rounded-xl text-xs font-bold hover:bg-stone-100 transition">
+                        📞 078-545455
+                    </a>
+                    <a href="tel:9749382246" class="flex-1 py-2 text-center bg-[#c25e19] text-white rounded-xl text-xs font-bold hover:bg-[#d96b20] transition">
+                        📱 9749382246
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- 2. Resort Introduction & Real Atmosphere Narrative -->
 <section class="py-16 sm:py-24 bg-white">
